@@ -28,7 +28,9 @@ jobs:
         gradle-version: '8.4'
 
     - name: Configure Clean Gradle Properties
-      run: echo "org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8" > gradle.properties
+      run: |
+        echo "org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8" > gradle.properties
+        echo "android.useAndroidX=true" >> gradle.properties
 
     - name: Build APK
       run: gradle assembleDebug
