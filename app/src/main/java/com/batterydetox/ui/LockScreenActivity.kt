@@ -12,6 +12,7 @@ import android.widget.TextView
 import android.widget.Toast
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
+import com.batterydetox.R
 import com.batterydetox.data.ScoreManager
 import com.batterydetox.receiver.BatteryReceiver
 

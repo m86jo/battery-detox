@@ -16,12 +16,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        
         checkOverlayPermissionAndStart()
     }
 
     private fun checkOverlayPermissionAndStart() {
-        // التحقق من صلاحية "الظهور فوق التطبيقات" لأندرويد 6.0 فما فوق
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
             Toast.makeText(this, "يرجى منح صلاحية 'الظهور فوق التطبيقات' لكي يعمل القفل", Toast.LENGTH_LONG).show()
             val intent = Intent(
@@ -38,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         val scoreManager = ScoreManager(this)
         val currentScore = scoreManager.getScore()
 
-        // تشغيل خدمة المراقبة الدائمة
         val serviceIntent = Intent(this, BatteryMonitorService::class.java)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             startForegroundService(serviceIntent)
@@ -47,6 +44,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         Toast.makeText(this, "تم تفعيل الحماية! 🛡️ نقاطك الحالية: $currentScore", Toast.LENGTH_LONG).show()
-        finish() // نغلق الشاشة فوراً ليبقى التطبيق يعمل كخدمة خفية فقط
+        finish()
     }
 }
