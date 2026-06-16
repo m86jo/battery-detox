@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Battery Detox</string>
+    <string name="battery_level">Battery Level: %d%%</string>
+    <string name="battery_status">Status: %s</string>
+    <string name="is_charging">Charging</string>
+    <string name="not_charging">Not Charging</string>
+</resources>
