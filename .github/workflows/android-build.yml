@@ -22,7 +22,12 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    - name: Build APK with system Gradle
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
+      with:
+        gradle-version: '8.4'
+
+    - name: Build APK
       run: gradle assembleDebug
 
     - name: Upload APK Artifact
